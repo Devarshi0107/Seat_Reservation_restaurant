@@ -1,0 +1,464 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="script.js" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+          <div class="logo">
+              <span class="logo-text">BOOK MY TABLE</span>
+          </div>
+          <div class="menu">
+              <a href="#home" class="nav-item">Home</a>
+              <a href="#about" class="nav-item">About</a>
+              <a href="#services" class="nav-item">Services</a>
+          </div>
+      </nav>
+  </header>
+  
+
+    <section class="food-items">
+      <div class="line">
+        <h2>CHOOSE YOUR PLACE !</h2>
+        <div class="food-icons">
+          </a>
+          <a data-location="ahemdabad" href=""><img src="place1.jpg" alt="Food 1" class="food-icon" /></a>
+          <a data-location="banglore" href=""><img src="place2.jpg" alt="Food 2" class="food-icon" /></a>
+          <a data-location="delhi" href=""><img src="place3.jpg" alt="Food 3" class="food-icon" /></a>
+          <a data-location="jaipur" href=""><img src="place4.jpg" alt="Food 3" class="food-icon" /></a>
+          <a data-location="lucknow" href=""><img src="place5.jpg" alt="Food 3" class="food-icon" /></a>
+          <a data-location="mumbai" href=""><img src="place6.jpg" alt="Food 3" class="food-icon" /></a>
+        
+        </div>
+      </div>
+    </section>
+
+    <section class="restaurant-section">
+      <h2>RESTAURANTS</h2>
+      <div id="restaurant-images" class="restaurant-images">
+        
+        
+      </div>
+    </section>
+
+</body>
+<script>
+  // Fetch restaurant data from Express.js backend using AJAX
+  window.onload = function() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var restaurants = JSON.parse(this.responseText);
+        displayRestaurants(restaurants);
+      }
+    };
+    xhttp.open("GET", "http://localhost:3000/restaurants", true); // Update the URL to match your backend route
+    xhttp.send();
+  };
+
+  // Function to display restaurants dynamically
+  function displayRestaurants(restaurants) {
+    var restaurantImages = document.getElementById("restaurant-images");
+    restaurants.forEach(function(restaurant) {
+      var div = document.createElement("div");
+      div.className = "restaurant-item";
+      var link = document.createElement("a");
+      link.href = "#"; // Update the href accordingly
+      var img = document.createElement("img");
+      img.src = restaurant.image_path;
+      img.alt = "Restaurant";
+      img.className = "restaurant-image";
+      link.appendChild(img);
+      div.appendChild(link);
+
+      var descriptionBox = document.createElement("div");
+      descriptionBox.className = "description-box";
+      var name = document.createTextNode("Name: " + restaurant.name);
+      descriptionBox.appendChild(name);
+      descriptionBox.appendChild(document.createElement("br"));
+      var location = document.createTextNode("Location: " + restaurant.location);
+      descriptionBox.appendChild(location);
+      descriptionBox.appendChild(document.createElement("br"));
+      var rating = document.createTextNode("Rating: " + restaurant.rating+"/5");
+      descriptionBox.appendChild(rating);
+      descriptionBox.appendChild(document.createElement("br"));
+      var restaurantId = document.createTextNode("Restaurant ID: " + restaurant.restaurant_id);
+      descriptionBox.appendChild(restaurantId);
+      div.appendChild(descriptionBox);
+
+      restaurantImages.appendChild(div);
+    });
+  }
+</script>
+</html> -->
+
+
+<!-- //2nd all correct sorting but not diplaying all restaurant detal -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home</title>
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+      <div class="logo">
+          <span class="logo-text">BOOK MY TABLE</span>
+      </div>
+      <div class="menu">
+          <a href="#home" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#services" class="nav-item">Services</a>
+      </div>
+  </nav>
+</header>
+
+<section class="food-items">
+  <div class="line">
+    <h2>CHOOSE YOUR PLACE !</h2>
+    <div class="food-icons">
+      <a data-location="ahemdabad" href=""><img src="place1.jpg" alt="Food 1" class="food-icon" /></a>
+      <a data-location="banglore" href=""><img src="place2.jpg" alt="Food 2" class="food-icon" /></a>
+      <a data-location="delhi" href=""><img src="place3.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="jaipur" href=""><img src="place4.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="lucknow" href=""><img src="place5.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="mumbai" href=""><img src="place6.jpg" alt="Food 3" class="food-icon" /></a>
+
+    </div>
+  </div>
+</section>
+
+<section class="restaurant-section">
+  <h2>RESTAURANTS</h2>
+  <div id="restaurant-images" class="restaurant-images">
+  </div>
+</section>
+
+<script>
+// Function to fetch and display restaurants based on location
+function fetchAndDisplayRestaurants(location) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var restaurants = JSON.parse(this.responseText);
+      displayRestaurants(restaurants.filter(restaurant => restaurant.location === location));
+    }
+  };
+  xhttp.open("GET", "http://localhost:3000/restaurants", true); // Update the URL to match your backend route
+  xhttp.send();
+}
+
+// Function to display restaurants dynamically
+function displayRestaurants(restaurants) {
+  var restaurantImages = document.getElementById("restaurant-images");
+  restaurantImages.innerHTML = ""; // Clear previous restaurant data
+  restaurants.forEach(function(restaurant) {
+    var div = document.createElement("div");
+    div.className = "restaurant-item";
+ //stop
+    var link = document.createElement("a");
+    // link.href = link_resaurant; // Update the href accordingly old
+    // link.href = "restaurant_detail.html?id=" + restaurant.restaurant_id; // Set the href attribute to the detail page URL with restaurant ID
+
+    // link.href =  restaurant.restaurant_id + ".html";
+
+    link.href =  + restaurant.restaurant_id + ".html";
+
+    // link.setAttribute("target", "_blank");
+
+
+    var img = document.createElement("img");
+    img.src = restaurant.image_path;
+    img.alt = "Restaurant";
+    img.className = "restaurant-image";
+    link.appendChild(img);
+    div.appendChild(link);
+
+    var descriptionBox = document.createElement("div");
+    descriptionBox.className = "description-box";
+    var name = document.createTextNode("Name: " + restaurant.name);
+    descriptionBox.appendChild(name);
+    descriptionBox.appendChild(document.createElement("br"));
+    var location = document.createTextNode("Location: " + restaurant.location);
+    descriptionBox.appendChild(location);
+    descriptionBox.appendChild(document.createElement("br"));
+    var rating = document.createTextNode("Rating: " + restaurant.rating+"/5");
+    descriptionBox.appendChild(rating);
+    descriptionBox.appendChild(document.createElement("br"));
+    var restaurantId = document.createTextNode("Restaurant ID: " + restaurant.restaurant_id);
+    descriptionBox.appendChild(restaurantId);
+    div.appendChild(descriptionBox);
+    console.log(restaurants);
+    restaurantImages.appendChild(div);
+  });
+}
+
+// Event listener for clicking on food icons
+document.querySelectorAll('.food-icons a').forEach(function(icon) {
+  icon.addEventListener('click', function(event) {
+    event.preventDefault();
+    var location = icon.getAttribute('data-location');
+    fetchAndDisplayRestaurants(location);
+  });
+});
+
+// Fetch and display all restaurants by default
+window.onload = function() {
+  fetchAndDisplayRestaurants(''); // Empty location filter to fetch all restaurants
+};
+</script>
+</body>
+</html>  
+
+<!-- //3rd displaying by default correctly but not shorting work -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home</title>
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+      <div class="logo">
+          <span class="logo-text">BOOK MY TABLE</span>
+      </div>
+      <div class="menu">
+          <a href="#home" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#services" class="nav-item">Services</a>
+      </div>
+  </nav>
+</header>
+
+<section class="food-items">
+  <div class="line">
+    <h2>CHOOSE YOUR PLACE !</h2>
+    <div class="food-icons">
+      <a data-location="ahemdabad" href="#"><img src="place1.jpg" alt="Food 1" class="food-icon" /></a>
+      <a data-location="banglore" href="#"><img src="place2.jpg" alt="Food 2" class="food-icon" /></a>
+      <a data-location="delhi" href="#"><img src="place3.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="jaipur" href="#"><img src="place4.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="lucknow" href="#"><img src="place5.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="mumbai" href="#"><img src="place6.jpg" alt="Food 3" class="food-icon" /></a>
+   
+    </div>
+  </div>
+</section>
+
+<section class="restaurant-section">
+  <h2>RESTAURANTS</h2>
+  <div id="restaurant-images" class="restaurant-images">
+  </div>
+</section>
+
+<script>
+// Function to fetch and display restaurants based on location
+function fetchAndDisplayRestaurants(location) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var restaurants = JSON.parse(this.responseText);
+      displayRestaurants(restaurants);
+    }
+  };
+  var url = "http://localhost:3000/restaurants";
+  if (location) {
+    url += "?location=" + location;
+  }
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+// Function to display restaurants dynamically
+function displayRestaurants(restaurants) {
+  var restaurantImages = document.getElementById("restaurant-images");
+  restaurantImages.innerHTML = ""; // Clear previous restaurant data
+  restaurants.forEach(function(restaurant) {
+    var div = document.createElement("div");
+    div.className = "restaurant-item";
+    var link = document.createElement("a");
+    link.href = "#"; // Update the href accordingly
+    var img = document.createElement("img");
+    img.src = restaurant.image_path;
+    img.alt = "Restaurant";
+    img.className = "restaurant-image";
+    link.appendChild(img);
+    div.appendChild(link);
+
+    var descriptionBox = document.createElement("div");
+    descriptionBox.className = "description-box";
+    var name = document.createTextNode("Name: " + restaurant.name);
+    descriptionBox.appendChild(name);
+    descriptionBox.appendChild(document.createElement("br"));
+    var location = document.createTextNode("Location: " + restaurant.location);
+    descriptionBox.appendChild(location);
+    descriptionBox.appendChild(document.createElement("br"));
+    var rating = document.createTextNode("Rating: " + restaurant.rating+"/5");
+    descriptionBox.appendChild(rating);
+    descriptionBox.appendChild(document.createElement("br"));
+    var restaurantId = document.createTextNode("Restaurant ID: " + restaurant.restaurant_id);
+    descriptionBox.appendChild(restaurantId);
+    div.appendChild(descriptionBox);
+
+    restaurantImages.appendChild(div);
+  });
+}
+
+// Event listener for clicking on food icons
+document.querySelectorAll('.food-icons a').forEach(function(icon) {
+  icon.addEventListener('click', function(event) {
+    event.preventDefault();
+    var location = icon.getAttribute('data-location');
+    fetchAndDisplayRestaurants(location);
+  });
+});
+
+// Fetch and display all restaurants by default
+window.onload = function() {
+  fetchAndDisplayRestaurants(''); // Empty location filter to fetch all restaurants
+};
+</script>
+</body>
+</html> -->
+
+
+<!-- ---------------//playing with first code-------------------- -->
+<!-- -------giving append error--------- -->
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home</title>
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+      <div class="logo">
+          <span class="logo-text">BOOK MY TABLE</span>
+      </div>
+      <div class="menu">
+          <a href="#home" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#services" class="nav-item">Services</a>
+      </div>
+  </nav>
+</header>
+
+<section class="food-items">
+  <div class="line">
+    <h2>CHOOSE YOUR PLACE !</h2>
+    <div class="food-icons">
+      <a data-location="ahemdabad" href=""><img src="place1.jpg" alt="Food 1" class="food-icon" /></a>
+      <a data-location="banglore" href=""><img src="place2.jpg" alt="Food 2" class="food-icon" /></a>
+      <a data-location="delhi" href=""><img src="place3.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="jaipur" href=""><img src="place4.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="lucknow" href=""><img src="place5.jpg" alt="Food 3" class="food-icon" /></a>
+      <a data-location="mumbai" href=""><img src="place6.jpg" alt="Food 3" class="food-icon" /></a>
+    </div>
+  </div>
+</section>
+
+<section class="restaurant-section">
+  <h2>RESTAURANTS</h2>
+  <div id="restaurant-images" class="restaurant-images">
+  </div>
+</section>
+
+<script>
+// Function to fetch and display restaurants based on location
+function fetchAndDisplayRestaurants(location) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var restaurants = JSON.parse(this.responseText);
+      displayRestaurants(restaurants.filter(restaurant => restaurant.location === location));
+    }
+  };
+  xhttp.open("GET", "http://localhost:3000/restaurants/location/" + location, true);
+  xhttp.send();
+}
+
+// Function to display restaurants dynamically
+function displayRestaurants(restaurants) {
+  var restaurantImages = document.getElementById("restaurant-images");
+  if (!restaurantImages) {
+    console.error("Element with id 'restaurant-images' not found.");
+    return;
+  }
+
+  restaurantImages.innerHTML = ""; // Clear previous restaurant data
+
+  restaurants.forEach(function(restaurant) {
+    var div = document.createElement("div");
+    div.className = "restaurant-item";
+    var link = document.createElement("a");
+    link.href = "#"; // Update the href accordingly
+    var img = document.createElement("img");
+    img.src = restaurant.image_path;
+    img.alt = "Restaurant";
+    img.className = "restaurant-image";
+    link.appendChild(img);
+    div.appendChild(link);
+
+    var descriptionBox = document.createElement("div");
+    descriptionBox.className = "description-box";
+    var name = document.createTextNode("Name: " + restaurant.name);
+    descriptionBox.appendChild(name);
+    descriptionBox.appendChild(document.createElement("br"));
+    var location = document.createTextNode("Location: " + restaurant.location);
+    descriptionBox.appendChild(location);
+    descriptionBox.appendChild(document.createElement("br"));
+    var rating = document.createTextNode("Rating: " + restaurant.rating+"/5");
+    descriptionBox.appendChild(rating);
+    descriptionBox.appendChild(document.createElement("br"));
+    var restaurantId = document.createTextNode("Restaurant ID: " + restaurant.restaurant_id);
+    descriptionBox.appendChild(restaurantId);
+    div.appendChild(descriptionBox);
+
+    restaurantImages.appendChild(div);
+  });
+}
+
+// Event listener for clicking on food icons
+document.querySelectorAll('.food-icons a').forEach(function(icon) {
+  icon.addEventListener('click', function(event) {
+    event.preventDefault();
+    var location = icon.getAttribute('data-location');
+    fetchAndDisplayRestaurants(location);
+  });
+});
+
+// Fetch and display all restaurants by default
+window.onload = function() {
+  fetchAndDisplayRestaurants(''); // Empty location filter to fetch all restaurants
+};
+</script>
+</body>
+</html> -->
+
+
+<!-- //4th 22 march redirecting page 
+ -->
+
+ 

@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merienda", cursive;
+  font-family: "Protest Riot", sans-serif;
+  font-family: "Recursive", sans-serif;
+}
+
+body {
+ /* background-image: url('texture.jpg'); /* Example texture image */
+ /* background-repeat: repeat; /* Repeat the texture */
+ background-color: #eae7dc; 
+ overflow-y: scroll;
+  padding: 10px 20px;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+header {
+  background-color: #eae7dc;
+  color: #e85a4f;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.5em;
+}
+
+/* Adjust the existing styles for the logo */
+
+.logo-text {
+  font-family: "Pacifico", cursive; /* Use the Pacifico font from Google Fonts */
+  font-size: 30px; /* Adjust the font size */
+  color: #e85a4f; /* Set text color */
+}
+
+.menu {
+  display: flex;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #8e8d8a;
+  margin-right: 20px;
+  font-size: 1.2em;
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+  color: #e85a4f;
+}
+
+.food-items {
+  margin-top: 20px;
+  padding: 50px; /* Reduce padding for a more compact look */
+  background-color: #f9f7f2; /* Lighten the background color */
+  border-radius: 20px; /* Increase border radius for softer edges */
+  text-align: center; /* Center align text within the section */
+}
+
+.line {
+  margin: auto; /* Center the content horizontally */
+  max-width: 100%; /* Limit the width of the content */
+}
+
+.line h2 {
+  font-size: 2.5em; /* Increase font size for emphasis */
+  margin-bottom: 30px;
+  color: #e85a4f;
+}
+
+.food-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+
+}
+
+.food-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 15px;
+  transition: transform 0.2s ease-in-out;
+  border: 2px solid #e85a4f;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure text doesn't overflow */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text horizontally */
+}
+
+.food-icon img {
+  max-width: 100%; /* Ensure image fits within container */
+  max-height: 100%; /* Ensure image fits within container */
+}
+
+.food-icon:hover {
+  transform: scale(1.05);
+  border-color: #ff5733;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Add this CSS to your existing stylesheet or create a new one */
+
+/* Modify the "Restaurant" section */
+
+.restaurant-section {
+  margin-top: 40px; /* Increase margin-top for better separation */
+  padding: 20px; /* Adjust padding for better spacing */
+}
+
+.restaurant-section h2 {
+  font-size: 2.5em; /* Increase font size for emphasis */
+  color: #e85a4f;
+  margin-bottom: 20px; /* Add margin-bottom for spacing */
+  text-align: center; /* Center align text */
+}
+
+.restaurant-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.restaurant-item {
+  
+  width: calc(50% - 20px); /* Adjust width to create two-column layout */
+  height: 250px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-item:hover .description-box {
+  transform: translateY(0); /* Slide up description box on hover */
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.description-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eae7dc;
+  padding: 5px;
+  font-size: 0.8em;
+  transition: bottom 0.3s ease;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+}
+
+.restaurant-item:hover .restaurant-image {
+  filter: brightness(70%); /* Make image transparent on hover */
+}
+
+.restaurant-item:hover .restaurant-image {
+  opacity: 0.7; /* Make image transparent on hover */
+}
+
+.restaurant-item:hover .description-box {
+  transform: translateY(-50%); /* Rise up description box on hover */
+}
+
+.description-box h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #e85a4f;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Pacifico', cursive;
+}
+
+.description-box p {
+  margin-bottom: 10px;
+  font-size: 1em;
+  
+  line-height: 1.4;
+  color: #8e8d8a;
+  font-family: 'Arial', sans-serif;
+}
+
+.description-box p:last-child {
+  margin-bottom: 0; /* Remove bottom margin from last paragraph */
+}
+
+.description-box a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #e85a4f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.description-box a:hover {
+  background-color: #ff5733; /* Darker shade on hover */
+}
+
+
+/* Add hover effect for restaurant images */
+.restaurant-item:hover .restaurant-image {
+  transform: scale(1.1); /* Scale up image on hover */
+  filter: brightness(80%); /* Dim image on hover */
+}
+
+/* Add hover effect for restaurant items */
+.restaurant-item:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+

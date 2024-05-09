@@ -1,0 +1,645 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@700&family=Protest+Riot&family=Recursive:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eae7dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+/*.logo {
+    margin-top:6px;
+    
+    font-size: 2.0em;
+    color: #e85a4f;
+    user-select: none;
+    font-family: "Merienda", cursive;
+    font-family: "Protest Riot", sans-serif;
+    font-family: "Recursive", sans-serif;
+}
+
+.search-bar {
+    padding: 8px;
+    margin-right: 60px;
+    border: 1px solid #e85a4f;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #e85a4f;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #e85a4f;
+    font-weight: 500;
+    
+    transition: 0.5s;
+}
+
+.btnLogin-popup:hover {
+    background: black;
+    color: #e85a4f;
+}*/
+/* Add this to your existing CSS */
+
+/* Styles for navigation */
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for logo */
+.logo {
+  font-size: 2.5em; /* Increase font size for emphasis */
+  color: #e85a4f;
+  font-family: "Merienda", cursive; /* Use a cursive font for a stylish look */
+}
+
+/* Styles for search bar */
+.search-bar {
+  padding: 8px;
+  margin-right: 20px; /* Adjust margin for better spacing */
+  border: 1px solid #e85a4f;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1em;
+  transition: border-color 0.3s ease; /* Add transition for a smooth effect */
+}
+
+.search-bar:focus {
+  border-color: #f5b042; /* Change border color on focus for better feedback */
+}
+
+/* Styles for login button */
+.btnLogin-popup {
+  width: 100px; /* Adjust width for better alignment */
+  height: 40px; /* Adjust height for better visibility */
+  background: #e85a4f;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.3s ease; /* Add transition for a smooth effect */
+}
+
+.btnLogin-popup:hover {
+  background: #f5b042; /* Change background color on hover for better feedback */
+}
+
+/*.image-container {
+    margin-top: 40px; /* Adjust the margin as needed */
+/*}
+
+.image-container img {
+    height: 600px;
+    width: 1500px;
+    border-radius: 10px;
+    filter: brightness(80%);
+}
+*/
+/* Add this to your existing CSS */
+
+/* Styles for image container */
+.image-container {
+  margin-top: 40px; /* Keep the existing margin */
+  position: relative; /* Add positioning for overlay */
+}
+
+/* Styles for image */
+.image-container img {
+  height: 100%; /* Set image height to fill container */
+  width: 100%; /* Set image width to fill container */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  object-fit: cover; /* Ensure the image covers the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+/* Hover effect for image */
+.image-container img:hover {
+  transform: scale(1.05); /* Enlarge image slightly on hover */
+}
+
+/* Overlay for image */
+.image-overlay {
+  position: absolute; /* Position the overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  border-radius: 10px; /* Match image border radius */
+  opacity: 0; /* Initially hide overlay */
+  transition: opacity 0.3s ease; /* Add transition for fade-in effect */
+}
+
+/* Show overlay on hover */
+.image-container:hover .image-overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Text inside overlay */
+.overlay-text {
+  position: absolute; /* Position the text */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the text */
+  color: white; /* Text color */
+  font-size: 24px; /* Text size */
+  font-weight: bold; /* Text weight */
+  text-align: center; /* Center-align text */
+}
+
+.restaurant-info-box,
+.booking-box {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #e85a4f;
+  border-radius: 10px;
+}
+
+.restaurant-info-box h1,
+.booking-box h1 {
+  color: #e85a4f;
+}
+
+.restaurant-info-box {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #e85a4f;
+  border-radius: 10px;
+  background-color: #fff; /* Add background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.restaurant-info-box h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 40px; /* Decrease font size for better proportion */
+  color: #e85a4f;
+  margin-bottom: 20px; /* Add spacing below */
+}
+
+/* Add this to your existing CSS */
+
+/* Styles for the booking box */
+.booking-box {
+  margin: 20px;
+  padding: 40px;
+  border: 1px solid #e85a4f;
+  border-radius: 10px;
+  background-color: #fff; /* Add background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Styles for booking box title */
+.booking-box h1 {
+  font-family: "Roboto", sans-serif; /* Apply Roboto font */
+  font-size: 40px;
+  color: #e85a4f;
+  margin-bottom: 30px; /* Add spacing below */
+}
+
+/* Styles for booking form */
+.booking-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles for form label */
+.booking-box label {
+  font-family: "Roboto", sans-serif; /* Apply Roboto font */
+  font-size: 18px;
+  color: #e85a4f;
+  margin-top: 15px;
+}
+
+/* Styles for form input fields */
+.booking-box input,
+.booking-box select {
+  padding: 10px;
+  margin-bottom: 20px; /* Add spacing below */
+  border: 1px solid #e85a4f;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Styles for form button */
+.booking-box .btnBookTable {
+  width: 200px;
+  height: 50px;
+  background-color: #e85a4f;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif; /* Apply Roboto font */
+  font-size: 20px;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out; /* Add transition effect */
+}
+
+/* Hover effect for form button */
+.booking-box .btnBookTable:hover {
+  background-color: #d4453d; /* Change background color on hover */
+}
+
+/*.booking-box {
+    align-self: center; 
+    
+    padding: 50px;
+}
+
+.booking-box h1 {
+    font-size: 50px;
+}
+
+.booking-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-box label {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #e85a4f;
+    
+    
+}
+
+.booking-box input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e85a4f;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+}*/
+
+.booking-box .time-slot-container {
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+}
+
+/* .booking-box select {
+    padding: 7px;
+    border: 1px solid #e85a4f;
+    border-radius: 5px;
+    font-size: 1em;
+  }*/
+
+.btnBookTable {
+  margin-top: 15px;
+  width: 150px;
+  height: 50px;
+  background: #e85a4f;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.btnBookTable:hover {
+  background: black;
+}
+
+/* Add this to your existing CSS */
+
+/* Add this to your existing CSS */
+
+.menu {
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #333;
+}
+
+.item-price {
+  font-size: 1.2em;
+  color: #e85a4f;
+}
+
+/* Add this to your existing CSS */
+
+.user-reviews {
+  margin-top: 20px;
+}
+
+.review {
+  margin-bottom: 20px;
+}
+
+.user-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #e85a4f;
+}
+
+.rating {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  color: #f5b042;
+}
+
+.description {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px; /* Decrease font size for better readability */
+  color: #333;
+  margin-bottom: 20px; /* Add spacing below */
+}
+
+.menu {
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-size: 20px; /* Decrease font size for better readability */
+  color: #333;
+}
+
+/* Styles for item price */
+.item-price {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px; /* Decrease font size for better readability */
+  color: #e85a4f;
+}
+
+.user-reviews {
+  margin-top: 20px;
+}
+
+/* Styles for review */
+.review {
+  margin-bottom: 20px;
+}
+
+/* Styles for user name */
+.user-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px; /* Decrease font size for better readability */
+  font-weight: bold;
+  color: #e85a4f;
+}
+
+/* Styles for review rating */
+.review .rating {
+  font-size: 24px; /* Increase font size */
+  color: #f5b042;
+}
+
+/* Styles for review text */
+.review-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px; /* Decrease font size for better readability */
+  color: #333;
+}
+
+.Table_book {
+  font-family: "Roboto", sans-serif; /* Apply Roboto font */
+  text-align: center;
+  color: #e85a4f;
+  border: 2px solid #e85a4f;
+  border-radius: 10px;
+  width: 70%;
+  padding: 30px;
+  margin: 30px auto; /* Center the container */
+  background-color: #fff; /* Add background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.Table_book h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.table-selection {
+  margin-top: 20px;
+}
+
+.tables {
+  display: flex;
+  flex-direction: column; /* Stack tables vertically */
+}
+
+.table-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.table {
+  margin: 0 20px;
+  padding: 30px;
+  background-color: #f9f9f9; /* Add background color */
+  border: 2px solid #e85a4f;
+  border-radius: 10px;
+}
+
+.table-top {
+  width: 160px;
+  height: 100px;
+  background-color: #e85a4f; /* Add background color */
+  border-radius: 10px;
+}
+
+.table-seats {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.seat {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e85a4f;
+  border-radius: 20%;
+  cursor: pointer; /* Change cursor to indicate seat is clickable */
+}
+.topseat {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e85a4f;
+  border-radius: 20%;
+  display: inline-block;
+  margin: 5px;
+  justify-content: space-around;
+  gap: 200px;
+  cursor: pointer;
+}
+
+/* .table-seats:nth-child(odd) .seat:nth-child(2),
+  .table-seats:nth-child(odd) .seat:nth-child(3),
+  .table-seats:nth-child(odd) .seat:nth-last-child(2),
+  .table-seats:nth-child(odd) .seat:nth-last-child(3) {
+    align-self: flex-end; /* Align the second, third, second from last, and third from last seats to the bottom 
+  }  */
+
+.date {
+  font-size: 15px;
+}
+
+/* Your existing CSS styles here */
+
+/*.table {
+    margin: 0 20px;
+    padding: 60px;
+  }
+  
+  .table-top {
+    width: 160px; /* Adjust table width as needed */
+/*    height: 100px; /* Adjust table height as needed */
+/* background: #e85a4f;
+    border-radius: 10px;
+  }
+  
+ /* .table-seats {
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  
+  .seat {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e85a4f; /* Border color matches table color */
+/*    border-radius: 20%;
+    cursor: pointer; /* Change cursor to indicate seat is clickable */
+/* }
+  
+/*  .selected-seat {
+    background-color: #e85a4f; /* Change seat color to match table color upon selection */
+/*}
+  */
+/*  .Table_book {
+    font-size: x-large;
+    text-align: center;
+    color: #e85a4f;
+    border: 2px solid #e85a4f;
+    border-radius: 5px;
+    width: 70%;
+    padding-top: 10px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .table-selection {
+    margin-top: 20px;
+  }
+  
+  .tables {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .table-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .table {
+    margin: 0 20px;
+    padding: 80px;
+  }
+  
+  .table-top {
+    width: 160px;
+    height: 100px;
+    background: #e85a4f;
+    border-radius: 10px;
+  }
+  
+  .table-seats {
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  
+  .seat {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e85a4f;
+    border-radius: 20%;
+  }
+  
+  /* Add this to your existing CSS */
+
+/* Styles for selected seats */
+.selected-seat {
+  background-color: #e85a4f; /* Change seat color to match table color upon selection */
+}
+
+/* Styles for seats */
+/*.seat {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e85a4f; /* Border color matches table color */
+/* border-radius: 20%;
+  cursor: pointer; /* Change cursor to indicate seat is clickable */
+/*}*/
+
+/* Add this to your existing CSS */
+
+/* Styles for selectable seats */
+.seat.selectable {
+  cursor: pointer; /* Change cursor to indicate seat is clickable */
+}

@@ -1,0 +1,277 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="1.css" />
+    <script href="1.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <header>
+      <h2 class="logo">BOOK MY TABLE</h2>
+      <nav class="navigation">
+        <input type="text" class="search-bar" placeholder="Search here..." />
+        <button class="btnLogin-popup">Logout</button>
+      </nav>
+    </header>
+    <center><h1 style="color: white;">restaurant name</h1></center>
+    here make this h1 tag as restaurnt.name fetch according resturant .id
+
+
+    <div class="Table_book">
+      <h2>Table Booking</h2>
+      <section class="table-selection">
+        
+        <div class="tables">
+          <div class="table-row">
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 1"></div>
+              <div class="topseat" data-seat-name="Seat 2"></div>
+              <div class="topseat" data-seat-name="Seat 3"></div>
+              <div class="topseat" data-seat-name="Seat 4"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 5"></div>               
+                <div class="seat" data-seat-name="Seat 6"></div>              
+                <div class="seat" data-seat-name="Seat 7"></div>              
+                <div class="seat" data-seat-name="Seat 8"></div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 9"></div>
+              <div class="topseat" data-seat-name="Seat 10"></div>
+              <div class="topseat" data-seat-name="Seat 11"></div>
+              <div class="topseat" data-seat-name="Seat 12"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 13"></div>               
+                <div class="seat" data-seat-name="Seat 14"></div>              
+                <div class="seat" data-seat-name="Seat 15"></div>              
+                <div class="seat" data-seat-name="Seat 16"></div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 17"></div>
+              <div class="topseat" data-seat-name="Seat 18"></div>
+              <div class="topseat" data-seat-name="Seat 19"></div>
+              <div class="topseat" data-seat-name="Seat 20"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 21"></div>               
+                <div class="seat" data-seat-name="Seat 22"></div>              
+                <div class="seat" data-seat-name="Seat 23"></div>              
+                <div class="seat" data-seat-name="Seat 24"></div>
+              </div>
+            </div>
+          </div>
+          <div class="table-row">
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 25"></div>
+              <div class="topseat" data-seat-name="Seat 26"></div>
+              <div class="topseat" data-seat-name="Seat 27"></div>
+              <div class="topseat" data-seat-name="Seat 28"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 29"></div>               
+                <div class="seat" data-seat-name="Seat 30"></div>              
+                <div class="seat" data-seat-name="Seat 31"></div>              
+                <div class="seat" data-seat-name="Seat 32"></div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 33"></div>
+              <div class="topseat" data-seat-name="Seat 34"></div>
+              <div class="topseat" data-seat-name="Seat 35"></div>
+              <div class="topseat" data-seat-name="Seat 36"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 37"></div>               
+                <div class="seat" data-seat-name="Seat 38"></div>              
+                <div class="seat" data-seat-name="Seat 39"></div>              
+                <div class="seat" data-seat-name="Seat 40"></div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="topseat" data-seat-name="Seat 41"></div>
+              <div class="topseat" data-seat-name="Seat 42"></div>
+              <div class="topseat" data-seat-name="Seat 43"></div>
+              <div class="topseat" data-seat-name="Seat 44"></div>
+              <div class="table-top"></div>
+              <div class="table-seats">
+                <div class="seat" data-seat-name="Seat 45"></div>               
+                <div class="seat" data-seat-name="Seat 46"></div>              
+                <div class="seat" data-seat-name="Seat 47"></div>              
+                <div class="seat" data-seat-name="Seat 48"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+ 
+    <div class="booking-box">
+      <h2>Make a reservation</h2>
+      <br />
+      <form id="bookingForm">
+        <label for="partySize">Number Of Persons:</label>
+        <input type="number" id="partySize" name="partySize" min="1" required />
+
+        
+        <label for="date">Date:</label>
+        <div class="date">
+        <input type="date" id="date" name="date" required />
+        </div>
+
+
+        <label for="time">Time:</label>
+        <div class="time-slot-container">
+          
+          <select id="timeSelect" name="timeSelect">
+            <option value="5-6">5:00 - 6:00  PM</option>
+            <option value="7-8">7:00 - 8:00  PM</option>
+            <option value="9-10">9:00 - 10:00  PM</option>
+            <option value="10-11">10:00 - 11:00  PM</option>
+        
+          </select>
+        </div>
+
+        <button type="submit" class="btnBookTable" id="bookTableBtn">Book Table</button>
+      </form>
+    </div>
+
+    
+    <script src="1.js"></script>
+  </body>
+</html> -->
+
+
+<!-- //now trying with book button 5 march 1st  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Restaurant</title>
+<link rel="stylesheet" href="1.css" />
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+<script src="1.js"></script>
+<script src="seatSelection.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+  
+<body>
+<header>
+  <h2 class="logo">BOOK MY TABLE</h2>
+  <nav class="navigation">
+    <input type="text" class="search-bar" placeholder="Search here..." />
+    <button class="btnLogin-popup">Logout</button>
+  </nav>
+</header>
+<center><h1 style="color: white;">restaurant name</h1></center>
+
+<div class="Table_book">
+  <h2>Table Booking</h2>
+  <section class="table-selection">
+    
+    <div class="tables">
+      <div class="table-row">
+        <div class="table">
+          <div class="topseat" data-seat-name="Seat 1"></div>
+          <div class="topseat" data-seat-name="Seat 2"></div>
+          <div class="topseat" data-seat-name="Seat 3"></div>
+          <div class="topseat" data-seat-name="Seat 4"></div>
+          <div class="table-top"></div>
+          <div class="table-seats">
+            <div class="seat" data-seat-name="Seat 5"></div>               
+            <div class="seat" data-seat-name="Seat 6"></div>              
+            <div class="seat" data-seat-name="Seat 7"></div>              
+            <div class="seat" data-seat-name="Seat 8"></div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div class="booking-box">
+  <h2>Make a reservation</h2>
+  <br />
+  <form id="bookingForm">
+    <label for="partySize">Number Of Persons:</label>
+    <input type="number" id="partySize" name="partySize" min="1" required />
+    
+    <label for="date">Date:</label>
+    <div class="date">
+    <input type="date" id="date" name="date" required />
+    </div>
+
+    <label for="time">Time:</label>
+    <div class="time-slot-container">      
+      <select id="timeSelect" name="timeSelect">
+        <option value="5-6">5:00 - 6:00 PM</option>
+        <option value="7-8">7:00 - 8:00 PM</option>
+        <option value="9-10">9:00 - 10:00 PM</option>
+        <option value="10-11">10:00 - 11:00 PM</option>
+      </select>
+    </div>
+
+    <button type="button" class="btnBookTable" id="bookTableBtn">Book Table</button>
+  </form>
+</div>
+<script>
+  document.getElementById('bookTableBtn').addEventListener('click', async () => {
+    const email="devarshi@gmail.com"
+    const partySize = document.getElementById('partySize').value;
+    const date = document.getElementById('date').value;
+    const time_slot = document.getElementById('timeSelect').value;
+    
+    // Get selected seat (assuming there's a variable called 'selectedSeat')
+    const selectedSeat = document.querySelector('.selected');
+    
+    if (!selectedSeat) {
+      alert('Please select a seat.');
+      return;
+    }
+    
+    const seatName = selectedSeat.dataset.seat_number;
+  
+    try {
+      const response = await fetch('http://localhost:3000/reservations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, date, time_slot, seatName })
+      });
+  
+      if (response.ok) {
+        // Update frontend UI (e.g., display confirmation message)
+        alert('Table booked successfully!');
+        
+        // Reset form or do any other necessary UI updates
+      } else {
+        // Handle error response
+        throw new Error('Failed to book table');
+      }
+    } catch (error) {
+      console.error('Error booking table:', error);
+      alert('An error occurred from HTML booking.');
+    }
+  });
+  </script>
+  
+</body>
+</html>
+
+<!-- //above is giving encountering error then i provide akll file to chatgpt and next is corrction of 5th april 
+//2nd code  -->
+

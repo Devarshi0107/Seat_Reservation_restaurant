@@ -1,0 +1,48 @@
+.wraps{
+    margin-top: 30pt;
+    display: inline-flex;
+    /* height: 30px; */
+    /* background-color: aqua; */
+}
+
+.wraps .dynamic-txts{
+    /* display: inline-flex; */
+    overflow: hidden;
+    height: 21.5px;
+}
+
+.dynamic-txts li{
+    list-style: none;
+    font-size: 18px;
+    position: relative!important;
+    top: 0px;
+    animation: sliding 15s steps(5) infinite;
+}
+
+@keyframes sliding {
+    100%{
+        top: -110px;
+    }
+}
+
+.dynamic-txts li span{
+    position: relative;
+}
+.dynamic-txts li span::after{
+    content: "";
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-left: 2px solid red;
+    animation: typing 3s steps(38) infinite;
+}
+
+@keyframes typing {
+    100%{
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+}
